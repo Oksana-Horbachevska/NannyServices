@@ -1,0 +1,49 @@
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="icon-chevron-down" viewBox="0 0 32 32">
+      <path fill="none" stroke="#fbfbfb" style="stroke:var(--color1, #fbfbfb)" stroke-linejoin="round" stroke-linecap="round" stroke-width="3.2" d="m8 12 8 8 8-8"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4" d="M16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.364 2.667 16 2.667 2.667 8.637 2.667 16 8.637 29.333 16 29.333z"/>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4" d="M16 8v8l5.333 2.667"/>
+    </symbol>
+    <symbol id="icon-Ellipse-1" viewBox="0 0 32 32">
+      <path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z"/>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3.2" d="M1.333 16S6.666 5.333 16 5.333 30.667 16 30.667 16 25.334 26.667 16 26.667 1.333 16 1.333 16z"/>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3.2" d="M16 20a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+    </symbol>
+    <symbol id="icon-eye-off" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3.2" d="M23.92 23.92A13.43 13.43 0 0 1 16 26.667C6.667 26.667 1.333 16 1.333 16A24.605 24.605 0 0 1 8.08 8.08m5.12-2.427a12.161 12.161 0 0 1 2.8-.32C25.333 5.333 30.667 16 30.667 16a24.646 24.646 0 0 1-2.88 4.253m-8.96-1.426a4.01 4.01 0 0 1-2.855 1.273 3.994 3.994 0 0 1-4.069-4.07 3.999 3.999 0 0 1 1.273-2.855M1.333 1.333l29.333 29.333"/>
+    </symbol>
+    <symbol id="icon-fe_check" viewBox="0 0 32 32">
+      <path d="M8 13.333 5.333 16l8 8 13.333-13.333L23.999 8 13.332 18.667l-5.333-5.333z"/>
+    </symbol>
+    <symbol id="icon-I" viewBox="0 0 32 32">
+      <path d="M12.8 0h5.333v30.464H12.8V0z"/>
+    </symbol>
+    <symbol id="icon-image-5" viewBox="0 0 32 32">
+      <path d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0z"/>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" d="M28 13.333c0 9.333-12 17.333-12 17.333s-12-8-12-17.333a12.003 12.003 0 0 1 12-12 12.003 12.003 0 0 1 12 12z"/>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" d="M16 17.333a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+    </symbol>
+    <symbol id="icon-mdi_user" viewBox="0 0 32 32">
+      <path d="M16 5.333a5.332 5.332 0 1 1 0 10.665 5.332 5.332 0 0 1 0-10.665zm0 13.334c5.893 0 10.667 2.387 10.667 5.333v2.667H5.334V24c0-2.947 4.773-5.333 10.667-5.333z"/>
+    </symbol>
+    <symbol id="icon-Property-1Normal" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.462" d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.186 2.15L16.001 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374l11.787 11.787 11.787-11.787a7.326 7.326 0 0 0 0-10.373z"/>
+    </symbol>
+    <symbol id="icon-Star-2" viewBox="0 0 32 32">
+      <path stroke-width="2.56" d="M18.965 9.868c.34.643.958 1.093 1.675 1.217l8.106 1.4-5.733 5.904a2.348 2.348 0 0 0-.64 1.969l1.171 8.144-7.383-3.629-.25-.106a2.353 2.353 0 0 0-1.571 0l-.25.106-7.385 3.629 1.173-8.144a2.345 2.345 0 0 0-.64-1.969l-5.735-5.904 8.108-1.4a2.345 2.345 0 0 0 1.675-1.217l3.84-7.277 3.84 7.277z"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" d="M24 8 8 24M8 8l16 16"/>
+    </symbol>
+    <symbol id="icon-home11" viewBox="0 0 32 32">
+      <path d="M32 18.451 16 6.031 0 18.451v-5.064L16 .967l16 12.42zM28 18v12h-8v-8h-8v8H4V18l12-9z"/>
+    </symbol>
+  </defs>
+</svg>
