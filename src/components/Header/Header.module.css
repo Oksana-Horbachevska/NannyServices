@@ -1,10 +1,16 @@
-.header {
-  position: relative;
+.headerHome {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
+  background-color: transparent;
+  margin-top: 32px;
+}
+
+.headerDefault {
   background-color: #f03f3b;
+  margin-top: 0px;
 }
 
 .headerContainer {

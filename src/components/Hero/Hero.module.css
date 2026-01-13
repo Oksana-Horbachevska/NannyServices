@@ -1,0 +1,111 @@
+.hero {
+  padding: 32px;
+  width: 100vw;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  height: 736px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+.left {
+  width: 50%;
+  background-color: #f03f3b;
+  display: flex;
+  align-items: center;
+}
+
+.left .container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.right {
+  width: 50%;
+  background-image: url("/public/Rectangle\ 1x.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.heroTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  color: #fbfbfb;
+}
+
+.heroText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 107%;
+  letter-spacing: -0.02em;
+  color: #fbfbfb;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 30px;
+  padding: 18px 50px;
+  max-width: 230px;
+  height: 60px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  margin-top: 64px;
+}
+
+.popup {
+  border-radius: 20px;
+  width: 284px;
+  height: 118px;
+  background: #fbfbfb;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 82px;
+  right: 82px;
+}
+
+.popupSvg {
+  border-radius: 13px;
+  width: 54px;
+  height: 54px;
+  background: #f03f3b;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  fill: #fff;
+}
+
+.popupContent {
+}
+
+.popupText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(17, 16, 28, 0.5);
+  margin-bottom: 6px;
+}
+
+.popupPrice {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  color: #11101c;
+}

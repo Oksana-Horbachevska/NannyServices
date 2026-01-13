@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import css from "./Header.module.css";
 
 export default function Header() {
+  const { pathname } = useLocation();
+
+  const isHome = pathname === "/";
   return (
-    <header className={css.header}>
+    <header className={isHome ? css.headerHome : css.headerDefault}>
       <div className="container">
         <div className={css.headerContainer}>
           <div className={css.logoContainer}>
