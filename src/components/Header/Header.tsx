@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useUiStore } from "../../store/uiStore";
 import css from "./Header.module.css";
 
 export default function Header() {
+  const { openLogin, openRegister } = useUiStore();
   const { pathname } = useLocation();
 
   const isHome = pathname === "/";
@@ -30,18 +32,20 @@ export default function Header() {
                 </li>
               </ul>
             </nav>
-            <ul className={css.navAuthList}>
-              <li className={`${css.navAuthItem} ${css.navAuthItemLogin}`}>
-                <Link className={css.navAuthLink} to="/">
-                  Log in
-                </Link>
-              </li>
-              <li className={`${css.navAuthItem} ${css.navAuthItemRegister}`}>
-                <Link className={css.navAuthLink} to="/">
-                  Registration
-                </Link>
-              </li>
-            </ul>
+            <div className={css.navAuthList}>
+              <button
+                onClick={openLogin}
+                className={`${css.navAuthItem} ${css.navAuthItemLogin}`}
+              >
+                Log in
+              </button>
+              <button
+                onClick={openRegister}
+                className={`${css.navAuthItem} ${css.navAuthItemRegister}`}
+              >
+                Registration
+              </button>
+            </div>
           </div>
         </div>
       </div>

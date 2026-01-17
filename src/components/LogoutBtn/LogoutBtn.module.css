@@ -1,9 +1,11 @@
-.loadMoreBtn {
+.logoutBtn {
+  border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
-  padding: 14px 40px;
-  width: 159px;
+  padding: 14px 39px;
   height: 48px;
-  background-color: #f03f3b;
+  display: block;
+  width: 100%;
+  align-items: center;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;

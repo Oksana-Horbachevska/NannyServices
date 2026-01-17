@@ -27,7 +27,7 @@
 
 .right {
   width: 50%;
-  background-image: url("/public/Rectangle\ 1x.png");
+  background-image: url("/Rectangle\ 1x.png");
   background-size: cover;
   background-position: center;
 }
@@ -39,6 +39,7 @@
   line-height: 100%;
   letter-spacing: -0.03em;
   color: #fbfbfb;
+  margin-bottom: 28px;
 }
 
 .heroText {

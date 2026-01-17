@@ -40,9 +40,6 @@
   align-items: center;
 }
 
-.navContainer {
-}
-
 .navList {
   display: flex;
   flex-direction: row;
