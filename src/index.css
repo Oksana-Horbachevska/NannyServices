@@ -7,7 +7,7 @@ body {
   padding: 0;
   min-height: 100%;
   line-height: 125%;
-  background-color: var(--white);
+  background-color: #f3f3f3;
   color: var(--main);
 }
 

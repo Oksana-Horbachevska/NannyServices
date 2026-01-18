@@ -1,11 +1,9 @@
-import css from "./Nannies.module.css";
+import NanniesList from "../../components/NanniesList/NanniesList";
 
 export default function Nannies() {
   return (
-    <>
-      <button className={css.loadMoreBtn} type="button">
-        Load more
-      </button>
-    </>
+    <div className="container">
+      <NanniesList />
+    </div>
   );
 }
