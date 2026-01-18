@@ -2,8 +2,8 @@ export default function Separator() {
   return (
     <svg
       width="1"
-      height="16"
-      viewBox="0 0 2 16"
+      height="18"
+      viewBox="0 0 2 18"
       xmlns="http://www.w3.org/2000/svg"
       style={{
         margin: "0 8px",
