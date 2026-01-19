@@ -1,4 +1,4 @@
-export interface Nanny {
+export interface FirebaseNanny {
   about: string;
   avatar_url: string;
   birthday: string;
@@ -11,4 +11,8 @@ export interface Nanny {
   price_per_hour: number;
   rating: number;
   reviews: object[];
+}
+
+export interface Nanny extends FirebaseNanny {
+  id: string;
 }

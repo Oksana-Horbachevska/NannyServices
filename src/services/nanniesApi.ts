@@ -8,7 +8,7 @@ import {
   get,
 } from "firebase/database";
 
-import type { Nanny } from "../types/nanny";
+import type { Nanny, FirebaseNanny } from "../types/nanny";
 
 export async function fetchNannies(firstKey?: string | null) {
   const nanniesRef = ref(db, "nannies");
@@ -29,9 +29,9 @@ export async function fetchNannies(firstKey?: string | null) {
 
   const data = snapshot.val();
 
-  const items = Object.entries(data).map(([firebaseId, nanny]) => ({
+  const items: Nanny[] = Object.entries(data).map(([firebaseId, nanny]) => ({
     id: `${firebaseId}-${Math.random()}`,
-    ...(nanny as Nanny),
+    ...(nanny as FirebaseNanny),
   }));
 
   const lastKey = Object.keys(data).pop() ?? null;
