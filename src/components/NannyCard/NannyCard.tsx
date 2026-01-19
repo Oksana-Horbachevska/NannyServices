@@ -3,6 +3,7 @@ import css from "./NannyCard.module.css";
 import Separator from "../Separator/Separator";
 import { calculateAge } from "../../utils/calculateAge";
 import { useState } from "react";
+import { formatRating } from "../../utils/formatRating";
 
 interface Props {
   nanny: Nanny;
@@ -16,6 +17,8 @@ export default function NannyCard({ nanny }: Props) {
   };
 
   const age = calculateAge(nanny.birthday);
+
+  const getInitial = (name: string) => name.trim()[0].toUpperCase();
   return (
     <li className={css.card}>
       <img className={css.avatar} src={nanny.avatar_url} alt={nanny.name} />
@@ -92,7 +95,32 @@ export default function NannyCard({ nanny }: Props) {
 
         {expanded && (
           <>
-            <div className={css.reviewSection}></div>
+            <ul className={css.reviewerList}>
+              {nanny.reviews.map((r) => (
+                <li className={css.reviewerItem} key={nanny.reviews.indexOf(r)}>
+                  <div className={css.reviewerWrapper}>
+                    <div className={css.reviewerAvatar}>
+                      {getInitial(r.reviewer)}
+                    </div>
+                    <div className={css.reviewerNameWrapper}>
+                      <h3 className={css.reviewerName}>{r.reviewer}</h3>
+                      <p className={css.reviewerRating}>
+                        <svg
+                          className={css.starIcon}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <use href="/sprite.svg#icon-Star-2" />
+                        </svg>
+                        {formatRating(r.rating)}
+                      </p>
+                    </div>
+                  </div>
+                  <p className={css.reviewComment}>{r.comment}</p>
+                </li>
+              ))}
+            </ul>
             <button className={css.orderBtn}>Make an appointment</button>
           </>
         )}

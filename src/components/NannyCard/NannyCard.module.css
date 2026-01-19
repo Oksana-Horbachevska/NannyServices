@@ -63,6 +63,10 @@
   font-size: 16px;
   line-height: 150%;
   color: #11101c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
 .starIcon {
@@ -131,7 +135,7 @@
   font-size: 16px;
   line-height: 125%;
   color: rgba(17, 16, 28, 0.5);
-  margin-bottom: 14px;
+  margin-bottom: 48px;
 }
 
 .readMore {
@@ -146,7 +150,63 @@
   padding: 0;
 }
 
-.reviewSection {
+.reviewerList {
+  margin-bottom: 48px;
+}
+
+.reviewerItem {
+  margin-bottom: 25px;
+}
+
+.reviewerWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.reviewerAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  background: rgba(240, 63, 59, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewerNameWrapper {
+}
+
+.reviewerName {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+  margin-bottom: 8px;
+}
+
+.reviewerRating {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #11101c;
+}
+
+.reviewComment {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(17, 16, 28, 0.5);
 }
 
 .orderBtn {

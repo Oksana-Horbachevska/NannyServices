@@ -10,9 +10,15 @@ export interface FirebaseNanny {
   name: string;
   price_per_hour: number;
   rating: number;
-  reviews: object[];
+  reviews: Review[];
 }
 
 export interface Nanny extends FirebaseNanny {
   id: string;
 }
+
+type Review = {
+  comment: string;
+  rating: number;
+  reviewer: string;
+};
