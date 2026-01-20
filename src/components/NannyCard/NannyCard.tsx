@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 interface Props {
   nanny: Nanny;
-  onToggleFavorite: () => void;
+  onToggleFavorite?: () => void;
 }
 
 export default function NannyCard({ nanny, onToggleFavorite }: Props) {
