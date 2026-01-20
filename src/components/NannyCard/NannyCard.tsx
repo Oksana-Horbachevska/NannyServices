@@ -10,9 +10,10 @@ import toast from "react-hot-toast";
 
 interface Props {
   nanny: Nanny;
+  onToggleFavorite: () => void;
 }
 
-export default function NannyCard({ nanny }: Props) {
+export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   const [expanded, setExpanded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -21,8 +22,9 @@ export default function NannyCard({ nanny }: Props) {
 
   useEffect(() => {
     const favorites: Nanny[] = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
+      localStorage.getItem("favorites") || "[]",
     );
+
     setIsFavorite(favorites.some((fav) => fav.id === nanny.id));
   }, [nanny.id]);
 
@@ -36,17 +38,19 @@ export default function NannyCard({ nanny }: Props) {
 
     // ПУНКТ 6/7/8: Логіка для авторизованого
     const favorites: Nanny[] = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
+      localStorage.getItem("favorites") || "[]",
     );
 
     if (isFavorite) {
       const filtered = favorites.filter((fav) => fav.id !== nanny.id);
       localStorage.setItem("favorites", JSON.stringify(filtered));
       setIsFavorite(false);
+      if (onToggleFavorite) onToggleFavorite();
     } else {
       favorites.push(nanny);
       localStorage.setItem("favorites", JSON.stringify(favorites));
       setIsFavorite(true);
+      if (onToggleFavorite) onToggleFavorite();
     }
   };
 
