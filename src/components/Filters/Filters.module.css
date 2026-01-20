@@ -1,0 +1,49 @@
+.filterSection {
+  margin-top: 64px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #8a8a89;
+}
+
+.select {
+  border-radius: 14px;
+  padding: 14px 18px 14px 18px;
+  width: 226px;
+  height: 48px;
+  background: #f03f3b;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+  color: #fbfbfb;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3e%3cpath stroke='%23fbfbfb' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' d='M8 12l8 8 8-8'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 20px;
+}
+
+.option {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 111%;
+  color: rgba(17, 16, 28, 0.3);
+  border-radius: 14px;
+  width: 226px;
+  height: 244px;
+  box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+  background: #fff;
+}

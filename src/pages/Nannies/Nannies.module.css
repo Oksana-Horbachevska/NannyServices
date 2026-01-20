@@ -1,1 +1,19 @@
-
+.loadMoreBtn {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 14px 40px;
+  max-width: 159px;
+  width: 100%;
+  height: 48px;
+  background-color: #f03f3b;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
