@@ -2,8 +2,11 @@ import type { Nanny } from "../../types/nanny";
 import css from "./NannyCard.module.css";
 import Separator from "../Separator/Separator";
 import { calculateAge } from "../../utils/calculateAge";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { formatRating } from "../../utils/formatRating";
+import { useAuthStore } from "../../store/authStore";
+import { useUiStore } from "../../store/uiStore";
+import toast from "react-hot-toast";
 
 interface Props {
   nanny: Nanny;
@@ -11,6 +14,41 @@ interface Props {
 
 export default function NannyCard({ nanny }: Props) {
   const [expanded, setExpanded] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const user = useAuthStore((state) => state.user);
+  const openRegister = useUiStore((state) => state.openRegister);
+
+  useEffect(() => {
+    const favorites: Nanny[] = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+    setIsFavorite(favorites.some((fav) => fav.id === nanny.id));
+  }, [nanny.id]);
+
+  const handleFavoriteClick = () => {
+    // ПУНКТ 6: Якщо не авторизований
+    if (!user) {
+      toast.error("This functionality is available only for authorized users!");
+      openRegister(); // відкриваємо модалку реєстрації
+      return;
+    }
+
+    // ПУНКТ 6/7/8: Логіка для авторизованого
+    const favorites: Nanny[] = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    if (isFavorite) {
+      const filtered = favorites.filter((fav) => fav.id !== nanny.id);
+      localStorage.setItem("favorites", JSON.stringify(filtered));
+      setIsFavorite(false);
+    } else {
+      favorites.push(nanny);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setIsFavorite(true);
+    }
+  };
 
   const handleReadMore = () => {
     setExpanded(true);
@@ -53,8 +91,17 @@ export default function NannyCard({ nanny }: Props) {
               Price / 1 hour:{" "}
               <span className={css.priceSpan}> {nanny.price_per_hour}$</span>
             </p>
-            <button type="button" className={css.favoriteButton}>
-              <svg className={css.favoriteIcon} viewBox="0 0 26 26">
+            <button
+              type="button"
+              className={css.favoriteButton}
+              onClick={handleFavoriteClick}
+            >
+              <svg
+                className={`${css.favoriteIcon} ${
+                  isFavorite ? css.isFavorite : ""
+                }`}
+                viewBox="0 0 26 26"
+              >
                 <use href="/sprite.svg#icon-Property-1Normal"></use>
               </svg>
             </button>
