@@ -1,4 +1,4 @@
-# 🚗NannyService App 
+# 🚼NannyService App 
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 ![Node.js v18](https://img.shields.io/badge/node-v18-green)
