@@ -23,6 +23,9 @@
     <symbol id="icon-I" viewBox="0 0 32 32">
       <path d="M12.8 0h5.333v30.464H12.8V0z"/>
     </symbol>
+    <symbol id="icon-menu" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.286" d="M4 16h24M4 8h24M4 24h24"/>
+    </symbol>
     <symbol id="icon-image-5" viewBox="0 0 32 32">
       <path d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0z"/>
     </symbol>

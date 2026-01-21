@@ -24,6 +24,25 @@
   align-items: center;
 }
 
+.burgerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  stroke: white;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background-color: inherit;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-icon {
+  stroke: white;
+}
+
 .logoLink {
   font-family: var(--font-family);
   font-weight: 500;
@@ -119,4 +138,68 @@
 
 .navAuthItemRegister {
   background: #f03f3b;
+}
+
+@media screen and (max-width: 767px) {
+  .navWrapper {
+    display: none;
+  }
+
+  .burgerBtn {
+    display: block;
+  }
+
+  .menuBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 999;
+  }
+
+  .mobileMenu {
+    width: 260px;
+    height: 100%;
+    background: #fff;
+    padding: 24px;
+    position: relative;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .closeMenuBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobileNav {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mobileLink {
+    font-size: 20px;
+    color: #111;
+    text-decoration: none;
+  }
+
+  .mobileAuth {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .mobileAuthBtn {
+    color: #f03f3b;
+  }
 }

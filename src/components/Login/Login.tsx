@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useUiStore } from "../../store/uiStore";
 import css from "./Login.module.css";
+import { useEffect } from "react";
 
 interface LoginProps {
   onClose: () => void;
@@ -26,6 +27,15 @@ const schema = yup.object({
 
 export default function Login({ onClose }: LoginProps) {
   const closeAll = useUiStore((state) => state.closeAll);
+
+  // ESC close
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
 
   const {
     register,
@@ -48,7 +58,10 @@ export default function Login({ onClose }: LoginProps) {
     }
   };
   return (
-    <div className={css.backdrop}>
+    <div
+      className={css.backdrop}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className={css.modal}>
         <button className={css.closeModalBtn} type="button" onClick={onClose}>
           <svg className={css.closeModalIcon} width="32" height="32">

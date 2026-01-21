@@ -4,13 +4,24 @@ import { useUiStore } from "../../store/uiStore";
 import css from "./Header.module.css";
 import { useAuthStore } from "../../store/authStore";
 import { logoutUser } from "../../services/auth";
+import { useEffect } from "react";
 
 export default function Header() {
-  const { openLogin, openRegister } = useUiStore();
-  const { user } = useAuthStore(); // Дістаємо юзера
+  const { openLogin, openRegister, isMenuOpen, toggleMenu, closeMenu } =
+    useUiStore();
+  const { user } = useAuthStore();
   const { pathname } = useLocation();
 
   const isHome = pathname === "/";
+
+  // ESC close
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [closeMenu]);
 
   return (
     <header className={isHome ? css.headerHome : css.headerDefault}>
@@ -21,6 +32,12 @@ export default function Header() {
               Nanny.Services
             </Link>
           </div>
+
+          <button className={css.burgerBtn} onClick={toggleMenu}>
+            <svg className={css.burgerIcon} width="24" height="24">
+              <use href="/sprite.svg#icon-menu"></use>
+            </svg>
+          </button>
 
           <div className={css.navWrapper}>
             <nav className={css.navContainer}>
@@ -86,6 +103,73 @@ export default function Header() {
           </div>
         </div>
       </div>
+      {/* MOBILE MODAL MENU */}
+      {isMenuOpen && (
+        <div className={css.menuBackdrop} onClick={closeMenu}>
+          <div className={css.mobileMenu} onClick={(e) => e.stopPropagation()}>
+            <button className={css.closeMenuBtn} onClick={closeMenu}>
+              ✕
+            </button>
+
+            <nav className={css.mobileNav}>
+              <Link className={css.mobileLink} to="/" onClick={closeMenu}>
+                Home
+              </Link>
+              <Link
+                className={css.mobileLink}
+                to="/nannies"
+                onClick={closeMenu}
+              >
+                Nannies
+              </Link>
+              {user && (
+                <Link
+                  className={css.mobileLink}
+                  to="/favorites"
+                  onClick={closeMenu}
+                >
+                  Favorites
+                </Link>
+              )}
+            </nav>
+
+            <div className={css.mobileAuth}>
+              {user ? (
+                <button
+                  className={css.mobileAuthBtn}
+                  onClick={() => {
+                    logoutUser();
+                    closeMenu();
+                  }}
+                >
+                  Log out
+                </button>
+              ) : (
+                <>
+                  <button
+                    className={css.mobileAuthBtn}
+                    onClick={() => {
+                      openLogin();
+                      closeMenu();
+                    }}
+                  >
+                    Log in
+                  </button>
+                  <button
+                    className={css.mobileAuthBtn}
+                    onClick={() => {
+                      openRegister();
+                      closeMenu();
+                    }}
+                  >
+                    Registration
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

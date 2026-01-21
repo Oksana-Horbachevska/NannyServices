@@ -156,6 +156,13 @@
   resize: none;
 }
 
+.submitBtn:hover,
+.submitBtn:focus {
+  background: #fbfbfb;
+  color: #f03f3b;
+  border: 1px solid #f03f3b;
+}
+
 .error {
   margin-top: 2px;
   color: #e63946;

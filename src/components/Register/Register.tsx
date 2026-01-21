@@ -6,6 +6,7 @@ import { FirebaseError } from "firebase/app";
 import { auth } from "../../firebase";
 import { useUiStore } from "../../store/uiStore";
 import css from "./Register.module.css";
+import { useEffect } from "react";
 
 interface RegisterProps {
   onClose: () => void;
@@ -29,6 +30,15 @@ const schema = yup.object({
 export default function Register({ onClose }: RegisterProps) {
   const closeAll = useUiStore((state) => state.closeAll);
 
+  // ESC close
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
+
   const {
     register,
     handleSubmit,
@@ -42,7 +52,7 @@ export default function Register({ onClose }: RegisterProps) {
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         data.email,
-        data.password
+        data.password,
       );
 
       await updateProfile(userCredentials.user, {
@@ -60,7 +70,10 @@ export default function Register({ onClose }: RegisterProps) {
   };
 
   return (
-    <div className={css.backdrop}>
+    <div
+      className={css.backdrop}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className={css.modal}>
         <button className={css.closeModalBtn} type="button" onClick={onClose}>
           <svg className={css.closeModalIcon} width="32" height="32">

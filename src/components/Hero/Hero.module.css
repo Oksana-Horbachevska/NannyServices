@@ -67,6 +67,12 @@
   margin-top: 64px;
 }
 
+.btn:hover,
+.btn:focus {
+  background: #fbfbfb;
+  color: #f03f3b;
+}
+
 .popup {
   border-radius: 20px;
   width: 284px;

@@ -17,3 +17,9 @@
   margin: 0 auto;
   margin-bottom: 100px;
 }
+
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+  background: #fbfbfb;
+  color: #f03f3b;
+}

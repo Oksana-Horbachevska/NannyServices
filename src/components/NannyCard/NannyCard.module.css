@@ -64,6 +64,7 @@
   line-height: 150%;
   color: #11101c;
   display: flex;
+
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -122,6 +123,7 @@
   font-size: 16px;
   line-height: 150%;
   color: #8a8a89;
+  max-width: fit-content;
 }
 
 .spanAge {
@@ -226,4 +228,10 @@
   width: 215px;
   height: 48px;
   background: #f03f3b;
+}
+
+.orderBtn:hover,
+.orderBtn:focus {
+  background: #fbfbfb;
+  color: #f03f3b;
 }
