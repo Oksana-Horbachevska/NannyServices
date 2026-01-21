@@ -1,73 +1,100 @@
-# React + TypeScript + Vite
+# 🚗NannyService App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License: MIT](https://img.shields.io/badge/license-MIT-blue)
+![Node.js v18](https://img.shields.io/badge/node-v18-green)
+![Next.js 15](https://img.shields.io/badge/next.js-15-yellow)
 
-Currently, two official plugins are available:
+NannyService is a modern web application built with React, designed to help users easily browse available nannies, view detailed caregiver profiles, and submit appointment requests.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The platform provides a simple and intuitive user experience, allowing families to quickly find and connect with qualified babysitters.
 
-## React Compiler
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+✨ Users can:
 
-## Expanding the ESLint configuration
+Browse a catalog of available nannies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Filter nannies based on key parameters
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+View detailed nanny information
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Add nannies to favorites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create an appointment request via a validated form
+
+Register / Log in using Firebase Authentication
+   
+   
+
+
+
+
+## 🛠️ Tech Stack
+
+    React 19
+    React Router
+    TypeScript
+    react-hook-form + Yup (form validation)
+    react-hot-toast
+    Firebase (Auth + Database)
+    Zustand (state management)
+    modern-normalize
+
+
+
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/Oksana-Horbachevska/NannyServices.git
+cd NannyServices
+npm install
+npm run dev
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 🚀 Features
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Pagination
+
+Nanny filtering
+
+Favorites functionality
+
+Detailed nanny profile page
+
+Appointment request modal
+
+Form validation (react-hook-form + Yup)
+
+Authentication (Login / Registration)
+
+Responsive design
+
+Burger menu for mobile
+
+  
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`VITE_FIREBASE_API_KEY=`  
+`VITE_FIREBASE_AUTH_DOMAIN=`
+`VITE_FIREBASE_PROJECT_ID=`
+`VITE_FIREBASE_DATABASE_URL=`
+`VITE_FIREBASE_STORAGE=`
+
+
+
+
+## 🤝 Contributing
+
+Contributions are always welcome!
+
+Contributions are welcome!
+  Fork the repository
+  Create a branch (git checkout -b feature-name)
+  Commit your changes (git commit -m "Feature")
+  Push to the branch (git push origin feature-name)
+  Open a Pull Request
