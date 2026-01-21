@@ -7,6 +7,7 @@ import { formatRating } from "../../utils/formatRating";
 import { useAuthStore } from "../../store/authStore";
 import { useUiStore } from "../../store/uiStore";
 import toast from "react-hot-toast";
+import AppointmentModal from "../AppointmentModal/AppointmentModal";
 
 interface Props {
   nanny: Nanny;
@@ -16,6 +17,7 @@ interface Props {
 export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   const [expanded, setExpanded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
   const user = useAuthStore((state) => state.user);
   const openRegister = useUiStore((state) => state.openRegister);
@@ -172,10 +174,21 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
                 </li>
               ))}
             </ul>
-            <button className={css.orderBtn}>Make an appointment</button>
+            <button
+              className={css.orderBtn}
+              onClick={() => setIsAppointmentModalOpen(true)}
+            >
+              Make an appointment
+            </button>
           </>
         )}
       </div>
+      {isAppointmentModalOpen && (
+        <AppointmentModal
+          nanny={nanny}
+          onClose={() => setIsAppointmentModalOpen(false)}
+        />
+      )}
     </li>
   );
 }
