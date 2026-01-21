@@ -65,7 +65,7 @@ export default function Login({ onClose }: LoginProps) {
       <div className={css.modal}>
         <button className={css.closeModalBtn} type="button" onClick={onClose}>
           <svg className={css.closeModalIcon} width="32" height="32">
-            <use href="/public/sprite.svg#icon-x"></use>
+            <use href="/sprite.svg#icon-x"></use>
           </svg>
         </button>
         <form className={css.modalForm} onSubmit={handleSubmit(onSubmit)}>
