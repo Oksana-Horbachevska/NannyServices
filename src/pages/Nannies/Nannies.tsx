@@ -14,10 +14,16 @@ export default function Nannies() {
   const [loading, setLoading] = useState(false);
 
   const loadNannies = async () => {
+    if (loading) return;
     setLoading(true);
     const { items, lastKey: newKey } = await fetchNannies(lastKey);
 
-    setRaw((prev) => [...prev, ...items]);
+    setRaw((prev) => {
+      const newItems = items.filter(
+        (newItem) => !prev.some((prevItem) => prevItem.id === newItem.id),
+      );
+      return [...prev, ...newItems];
+    });
     setLastKey(newKey);
     setLoading(false);
   };

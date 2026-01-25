@@ -30,7 +30,7 @@ export async function fetchNannies(firstKey?: string | null) {
   const data = snapshot.val();
 
   const items: Nanny[] = Object.entries(data).map(([firebaseId, nanny]) => ({
-    id: `${firebaseId}-${Math.random()}`,
+    id: firebaseId,
     ...(nanny as FirebaseNanny),
   }));
 

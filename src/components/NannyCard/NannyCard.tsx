@@ -20,7 +20,8 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
-  const isFavorite = useFavoritesStore((state) => state.isFavorite(nanny.id));
+  const favorites = useFavoritesStore((state) => state.favorites);
+  const isFavorite = favorites.some((fav) => fav.id === nanny.id);
   const user = useAuthStore((state) => state.user);
   const openRegister = useUiStore((state) => state.openRegister);
 
@@ -45,6 +46,7 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   const age = calculateAge(nanny.birthday);
 
   const getInitial = (name: string) => name.trim()[0].toUpperCase();
+
   return (
     <li className={css.card}>
       <div className={css.avatarWrapper}>
@@ -92,7 +94,13 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
                 }`}
                 viewBox="0 0 26 26"
               >
-                <use href="/sprite.svg#icon-Property-1Normal"></use>
+                <use
+                  href={
+                    isFavorite
+                      ? "/sprite.svg#icon-heart"
+                      : "/sprite.svg#icon-Property-1Normal"
+                  }
+                />
               </svg>
             </button>
           </div>

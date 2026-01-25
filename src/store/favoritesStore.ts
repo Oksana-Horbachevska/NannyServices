@@ -6,6 +6,7 @@ interface FavoritesState {
   favorites: Nanny[];
   toggleFavorite: (nanny: Nanny) => void;
   isFavorite: (id: string) => boolean;
+  clearFavorites: () => void;
 }
 
 export const useFavoritesStore = create<FavoritesState>()(
@@ -25,6 +26,7 @@ export const useFavoritesStore = create<FavoritesState>()(
       isFavorite: (id) => {
         return get().favorites.some((fav) => fav.id === id);
       },
+      clearFavorites: () => set({ favorites: [] }),
     }),
     { name: "favorites-storage" },
   ),
