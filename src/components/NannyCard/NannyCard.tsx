@@ -31,14 +31,14 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   }, [nanny.id]);
 
   const handleFavoriteClick = () => {
-    // ПУНКТ 6: Якщо не авторизований
+    // user non autorized
     if (!user) {
       toast.error("This functionality is available only for authorized users!");
-      openRegister(); // відкриваємо модалку реєстрації
+      openRegister();
       return;
     }
 
-    // ПУНКТ 6/7/8: Логіка для авторизованого
+    // user autorized
     const favorites: Nanny[] = JSON.parse(
       localStorage.getItem("favorites") || "[]",
     );
@@ -65,7 +65,9 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   const getInitial = (name: string) => name.trim()[0].toUpperCase();
   return (
     <li className={css.card}>
-      <img className={css.avatar} src={nanny.avatar_url} alt={nanny.name} />
+      <div className={css.avatarWrapper}>
+        <img className={css.avatar} src={nanny.avatar_url} alt={nanny.name} />
+      </div>
       <div className={css.cardInfo}>
         <div className={css.infoBlock_1}>
           <div className={css.titleInfo}>
