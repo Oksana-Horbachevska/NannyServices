@@ -164,6 +164,7 @@
 }
 
 .error {
+  position: absolute;
   margin-top: 2px;
   color: #e63946;
   font-size: 12px;

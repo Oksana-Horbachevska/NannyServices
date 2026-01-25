@@ -7,6 +7,7 @@ import { auth } from "../../firebase";
 import { useUiStore } from "../../store/uiStore";
 import css from "./Login.module.css";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 interface LoginProps {
   onClose: () => void;
@@ -51,9 +52,18 @@ export default function Login({ onClose }: LoginProps) {
       closeAll();
     } catch (error) {
       if (error instanceof FirebaseError) {
-        alert(error.message);
+        toast.error(error.message, {
+          duration: 5000,
+          style: {
+            borderRadius: "12px",
+            border: "1px solid #8a8a89",
+            background: "#f3f3f3",
+            color: "#f03f3b",
+            padding: "16px",
+          },
+        });
       } else {
-        alert("Unexpected error");
+        toast.error("Unexpected error");
       }
     }
   };

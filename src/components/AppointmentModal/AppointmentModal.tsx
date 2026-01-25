@@ -4,6 +4,7 @@ import css from "./AppointmentModal.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 
 interface Props {
   nanny: Nanny;
@@ -14,7 +15,7 @@ interface FormValues {
   address: string;
   phone: string;
   childAge: string;
-  date: string;
+  time: string;
   email: string;
   parentName: string;
   comment: string;
@@ -27,7 +28,7 @@ const schema = Yup.object({
     .matches(/^\+?\d{9,15}$/, "Invalid phone number")
     .required("Phone is required"),
   childAge: Yup.string().required("Child age is required"),
-  date: Yup.string().required("Date is required"),
+  time: Yup.string().required("Time is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   parentName: Yup.string().required("Name is required"),
   comment: Yup.string().required("Comment is required"),
@@ -56,7 +57,19 @@ export default function AppointmentModal({ nanny, onClose }: Props) {
 
   const onSubmit = (data: FormValues) => {
     console.log("APPOINTMENT DATA:", data);
-    alert("Request sent successfully!");
+    toast.success(
+      "Request sent successfully! Our manager will contact you soon.",
+      {
+        duration: 5000,
+        style: {
+          borderRadius: "12px",
+          border: "1px solid #8a8a89",
+          background: "#f3f3f3;",
+          color: "#f03f3b",
+          padding: "16px",
+        },
+      },
+    );
     reset();
     onClose();
   };
@@ -132,12 +145,12 @@ export default function AppointmentModal({ nanny, onClose }: Props) {
             <div className={css.inputField}>
               <input
                 className={css.input}
-                type="date"
-                {...register("date")}
+                type="time"
+                {...register("time")}
                 placeholder="00:00"
               />
-              {errors.date && (
-                <p className={css.error}>{errors.date.message}</p>
+              {errors.time && (
+                <p className={css.error}>{errors.time.message}</p>
               )}
             </div>
           </div>{" "}
