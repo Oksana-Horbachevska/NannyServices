@@ -2,12 +2,13 @@ import type { Nanny } from "../../types/nanny";
 import css from "./NannyCard.module.css";
 import Separator from "../Separator/Separator";
 import { calculateAge } from "../../utils/calculateAge";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { formatRating } from "../../utils/formatRating";
 import { useAuthStore } from "../../store/authStore";
 import { useUiStore } from "../../store/uiStore";
 import toast from "react-hot-toast";
 import AppointmentModal from "../AppointmentModal/AppointmentModal";
+import { useFavoritesStore } from "../../store/favoritesStore";
 
 interface Props {
   nanny: Nanny;
@@ -16,19 +17,12 @@ interface Props {
 
 export default function NannyCard({ nanny, onToggleFavorite }: Props) {
   const [expanded, setExpanded] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
   const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
+  const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
+  const isFavorite = useFavoritesStore((state) => state.isFavorite(nanny.id));
   const user = useAuthStore((state) => state.user);
   const openRegister = useUiStore((state) => state.openRegister);
-
-  useEffect(() => {
-    const favorites: Nanny[] = JSON.parse(
-      localStorage.getItem("favorites") || "[]",
-    );
-
-    setIsFavorite(favorites.some((fav) => fav.id === nanny.id));
-  }, [nanny.id]);
 
   const handleFavoriteClick = () => {
     // user non autorized
@@ -39,21 +33,9 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
     }
 
     // user autorized
-    const favorites: Nanny[] = JSON.parse(
-      localStorage.getItem("favorites") || "[]",
-    );
+    toggleFavorite(nanny);
 
-    if (isFavorite) {
-      const filtered = favorites.filter((fav) => fav.id !== nanny.id);
-      localStorage.setItem("favorites", JSON.stringify(filtered));
-      setIsFavorite(false);
-      if (onToggleFavorite) onToggleFavorite();
-    } else {
-      favorites.push(nanny);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-      setIsFavorite(true);
-      if (onToggleFavorite) onToggleFavorite();
-    }
+    if (onToggleFavorite) onToggleFavorite();
   };
 
   const handleReadMore = () => {

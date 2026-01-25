@@ -1,34 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
-import type { Nanny } from "../../types/nanny";
+import { useMemo, useState } from "react";
 import css from "./Favorites.module.css";
 import NannyCard from "../../components/NannyCard/NannyCard";
 import Filters from "../../components/Filters/Filters";
 import type { FilterValue } from "../../types/filters";
+import { useFavoritesStore } from "../../store/favoritesStore";
 
 export default function Favorites() {
-  const [loading, setLoading] = useState(false);
-  const [raw, setRaw] = useState<Nanny[]>([]);
+  const favorites = useFavoritesStore((state) => state.favorites);
+
   const [filter, setFilter] = useState<FilterValue>("all");
   const [limit, setLimit] = useState(3);
 
-  const loadFavorites = () => {
-    setLoading(true);
-    const savedFavorites = localStorage.getItem("favorites");
-    if (savedFavorites) {
-      setRaw(JSON.parse(savedFavorites));
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    loadFavorites();
-    const handleStorageChange = () => loadFavorites();
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
-
   const filteredNannies = useMemo(() => {
-    let result = [...raw];
+    let result = [...favorites];
 
     switch (filter) {
       case "asc":
@@ -53,7 +37,7 @@ export default function Favorites() {
         break;
     }
     return result;
-  }, [filter, raw]);
+  }, [filter, favorites]);
 
   const visibleNannies = filteredNannies.slice(0, limit);
 
@@ -63,7 +47,7 @@ export default function Favorites() {
   return (
     <section className={css.section}>
       <div className="container">
-        {raw.length > 0 ? (
+        {favorites.length > 0 ? (
           <>
             <Filters
               value={filter}
@@ -75,17 +59,13 @@ export default function Favorites() {
 
             <ul className={css.list}>
               {visibleNannies.map((nanny) => (
-                <NannyCard
-                  key={nanny.id}
-                  nanny={nanny}
-                  onToggleFavorite={loadFavorites}
-                />
+                <NannyCard key={nanny.id} nanny={nanny} />
               ))}
             </ul>
 
             {visibleNannies.length < filteredNannies.length && (
               <button className={css.loadMoreBtn} onClick={handleLoadMore}>
-                {loading ? "Loading..." : "Load more"}
+                Load more
               </button>
             )}
           </>
