@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={css.hero}>
         <div className={css.inner}>
           <div className={css.left}>
-            <div className="container">
+            <div className={css.titleWrapper}>
               <h1 className={css.heroTitle}>
                 Make Life Easier for the Family:
               </h1>

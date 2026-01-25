@@ -10,7 +10,7 @@ export default function PrivateRoute({ children }: Props) {
   const { user, loading } = useAuthStore();
 
   if (loading) return <p>Loading...</p>;
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/" replace />;
 
   return children;
 }

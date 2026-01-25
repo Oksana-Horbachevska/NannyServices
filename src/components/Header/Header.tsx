@@ -23,6 +23,18 @@ export default function Header() {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [closeMenu]);
 
+  // Close menu if innerWidth >= 768
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [closeMenu]);
+
   return (
     <header className={isHome ? css.headerHome : css.headerDefault}>
       <div className="container">
@@ -135,15 +147,27 @@ export default function Header() {
 
             <div className={css.mobileAuth}>
               {user ? (
-                <button
-                  className={css.mobileAuthBtn}
-                  onClick={() => {
-                    logoutUser();
-                    closeMenu();
-                  }}
-                >
-                  Log out
-                </button>
+                <div className={css.mobileUserContainer}>
+                  <div className={css.mobileUserInfo}>
+                    <div className={css.userIconWrapper}>
+                      <svg width="24" height="24" className={css.userIcon}>
+                        <use href="/sprite.svg#icon-mdi_user" />
+                      </svg>
+                    </div>
+                    <span className={css.userName}>
+                      {user.displayName || "User"}
+                    </span>
+                  </div>
+                  <button
+                    className={css.mobileAuthBtn}
+                    onClick={() => {
+                      logoutUser();
+                      closeMenu();
+                    }}
+                  >
+                    Log out
+                  </button>
+                </div>
               ) : (
                 <>
                   <button

@@ -17,12 +17,8 @@
   background-color: #f03f3b;
   display: flex;
   align-items: center;
-}
-
-.left .container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  padding-left: 96px;
+  padding-right: 64px;
 }
 
 .right {
@@ -53,6 +49,8 @@
 
 .btn {
   display: inline-block;
+  align-items: center;
+
   border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
   padding: 18px 50px;
@@ -115,4 +113,73 @@
   font-weight: 700;
   font-size: 24px;
   color: #11101c;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .left {
+    padding-left: 40px;
+    padding-right: 24px;
+  }
+
+  .heroTitle {
+    font-size: 62px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    padding: 6px;
+  }
+
+  .inner {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .left {
+    width: 100%;
+    height: 50%;
+    padding: 150px 20px 40px 20px;
+    order: 1;
+  }
+
+  .titleWrapper {
+  }
+
+  .heroTitle {
+    font-size: 48px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .heroText {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .right {
+    width: 100%;
+    height: 400px;
+    order: 2;
+    position: relative;
+  }
+
+  .btn {
+    margin: 32px auto 0;
+    padding: 12px 26px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .popup {
+    bottom: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    max-width: 284px;
+    height: 90px;
+    gap: 12px;
+  }
 }
