@@ -15,7 +15,7 @@
   border-radius: 30px;
   max-width: 565px;
   width: 100%;
-
+  margin: 4px;
   background: #fbfbfb;
   position: relative;
 }

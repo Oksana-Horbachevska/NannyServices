@@ -170,7 +170,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .headerHome {
     margin-top: 0px;
   }
@@ -240,8 +240,8 @@
   .mobileAuthBtn {
     border: 1px solid #f03f3b;
     border-radius: 30px;
-    padding: 14px 39px;
-    width: auto;
+    padding: 14px 29px;
+    width: 150px;
     height: 48px;
     color: #f03f3b;
   }

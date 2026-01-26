@@ -6,6 +6,7 @@
   border-radius: 24px;
   background: #fbfbfb;
   padding: 24px;
+  position: relative;
 }
 
 .avatarWrapper {
@@ -26,11 +27,9 @@
   height: 96px;
 }
 
-.cardInfo {
-}
-
 .infoBlock_1 {
   margin-bottom: 24px;
+  margin-right: 98px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -89,6 +88,9 @@
 }
 
 .favoriteButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   background: none;
   border: none;
   cursor: pointer;
@@ -244,4 +246,34 @@
 .orderBtn:focus {
   background: #fbfbfb;
   color: #f03f3b;
+}
+
+@media screen and (max-width: 1024px) {
+  .infoBlock_1 {
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 0;
+  }
+
+  .ratingInfo {
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .text1 {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .orderBtn {
+    font-size: 14px;
+    padding: 14px 10px;
+    width: 100%;
+    height: 48px;
+  }
 }
