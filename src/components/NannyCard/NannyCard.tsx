@@ -21,9 +21,9 @@ export default function NannyCard({ nanny, onToggleFavorite }: Props) {
 
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
   const favorites = useFavoritesStore((state) => state.favorites);
-  const isFavorite = favorites.some((fav) => fav.id === nanny.id);
   const user = useAuthStore((state) => state.user);
   const openRegister = useUiStore((state) => state.openRegister);
+  const isFavorite = !!user && favorites.some((fav) => fav.id === nanny.id);
 
   const handleFavoriteClick = () => {
     // user non autorized
