@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  nannyservice-app:
+    build: .
+    ports:
+      - "5173:5173" # Прокидаємо порт: з локального 3000 на 3000 в контейнері
+    volumes:
+      - .:/app # Синхронізуємо код: зміни в коді на комп'ютері одразу будуть у Docker
+      - /app/node_modules # Не переписуємо модулі контейнера локальними
+    environment:
+      - NODE_ENV=development
